@@ -11,4 +11,10 @@ public class StudentCreator extends OrganizationCreator<Student> {
         student.setSex(createHead().getSex());
         return student;
     }
+
+    public static void printStudentInfo(Student student) {
+        System.out.println("\t\t\t\t-- Student --");
+        System.out.println("\t\t\t\tName: " + student.getFirstName() + " " + student.getLastName());
+        System.out.println("\t\t\t\tSex: " + student.getSex());
+    }
 }

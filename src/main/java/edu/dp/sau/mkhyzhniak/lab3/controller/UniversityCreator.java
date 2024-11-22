@@ -17,4 +17,25 @@ public class UniversityCreator extends OrganizationCreator<Faculty> {
 
         return university;
     }
+
+    public static University createTypicalUniversity() {
+        UniversityCreator universityCreator = new UniversityCreator();
+
+        int facultyCount = 2;
+        int departmentCount = 2;
+        int groupCount = 2;
+        int studentCount = 5;
+
+        return universityCreator.createUniversity(facultyCount, departmentCount, groupCount, studentCount);
+    }
+
+    public static void printUniversityInfo(University university) {
+        System.out.println("=== University ===");
+        System.out.println("Name: " + university.getName());
+        System.out.println("Head: " + university.getHead().getFirstName() + " " + university.getHead().getLastName());
+
+        for (Faculty faculty : university.getContents()) {
+            FacultyCreator.printFacultyInfo(faculty);
+        }
+    }
 }

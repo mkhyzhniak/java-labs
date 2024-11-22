@@ -11,11 +11,10 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Введення розмірів матриці з перевіркою
         int rows = getValidatedInt(scanner, "Enter the number of rows (max 20): ", 20);
         int cols = getValidatedInt(scanner, "Enter the number of columns (max 20): ", 20);
 
-        // Вибір способу заповнення матриці
+
         int choice = getValidatedInt(scanner, "Choose matrix input method (1 for manual, 2 for random): ", 2);
         int[][] matrix;
 
@@ -37,13 +36,13 @@ public class Main {
             if (scanner.hasNextInt()) {
                 value = scanner.nextInt();
                 if (value >= 1 && value <= max) {
-                    return value; // Коректне значення, повертаємо
+                    return value;
                 } else {
                     System.out.println("Invalid input. Please enter a number between " + 1 + " and " + max + ".");
                 }
             } else {
                 System.out.println("Invalid input. Please enter an integer.");
-                scanner.next(); // Очищення некоректного вводу
+                scanner.next();
             }
         }
     }

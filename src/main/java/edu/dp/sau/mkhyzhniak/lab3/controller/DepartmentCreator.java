@@ -8,14 +8,23 @@ public class DepartmentCreator extends OrganizationCreator<Group> {
 
     public Department createDepartment(int groupCount, int studentCount) {
         Department department = new Department();
-        department.setName(randomCreator.generateDepartmentName()); // Генерує ім'я кафедри
-        department.setHead(createHead());                          // Генерує голову кафедри
+        department.setName(randomCreator.generateDepartmentName());
+        department.setHead(createHead());
 
-        // Створює групи за допомогою GroupCreator
         department.setContents(createContents(groupCount,
                 () -> groupCreator.createGroup(studentCount)
         ));
 
         return department;
+    }
+
+    public static void printDepartmentInfo(Department department) {
+        System.out.println("\t\t-- Department --");
+        System.out.println("\t\tName: " + department.getName());
+        System.out.println("\t\tHead: " + department.getHead().getFirstName() + " " + department.getHead().getLastName());
+
+        for (Group group : department.getContents()) {
+            GroupCreator.printGroupInfo(group);
+        }
     }
 }

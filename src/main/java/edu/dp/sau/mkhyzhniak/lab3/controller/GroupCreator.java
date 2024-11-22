@@ -17,4 +17,14 @@ public class GroupCreator extends OrganizationCreator<Student> {
 
         return group;
     }
+
+    public static void printGroupInfo(Group group) {
+        System.out.println("\t\t\t-- Group --");
+        System.out.println("\t\t\tName: " + group.getName());
+        System.out.println("\t\t\tHead: " + group.getHead().getFirstName() + " " + group.getHead().getLastName());
+
+        for (Student student : group.getContents()) {
+            StudentCreator.printStudentInfo(student);
+        }
+    }
 }

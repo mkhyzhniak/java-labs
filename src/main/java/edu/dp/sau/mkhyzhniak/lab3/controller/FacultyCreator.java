@@ -8,14 +8,23 @@ public class FacultyCreator extends OrganizationCreator<Department> {
 
     public Faculty createFaculty(int departmentCount, int groupCount, int studentCount) {
         Faculty faculty = new Faculty();
-        faculty.setName(randomCreator.generateFacultyName());  // Генерує ім'я факультету
-        faculty.setHead(createHead());                         // Генерує голову факультету
+        faculty.setName(randomCreator.generateFacultyName());
+        faculty.setHead(createHead());
 
-        // Створює кафедри за допомогою DepartmentCreator
         faculty.setContents(createContents(departmentCount,
                 () -> departmentCreator.createDepartment(groupCount, studentCount)
         ));
 
         return faculty;
+    }
+
+    public static void printFacultyInfo(Faculty faculty) {
+        System.out.println("\t-- Faculty --");
+        System.out.println("\tName: " + faculty.getName());
+        System.out.println("\tHead: " + faculty.getHead().getFirstName() + " " + faculty.getHead().getLastName());
+
+        for (Department department : faculty.getContents()) {
+            DepartmentCreator.printDepartmentInfo(department);
+        }
     }
 }
