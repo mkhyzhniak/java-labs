@@ -13,8 +13,8 @@ public class Main {
         List<Student> allStudents = controller.getAllStudents();
         controller.printStudents(allStudents);
 
-        System.out.println("\n=== Students Born in March ===");
-        List<Student> marchStudents = controller.getStudentsByMonth(3);
-        controller.printStudents(marchStudents);
+        System.out.println("\n=== Students Born in May ===");
+        List<Student> mayStudents = controller.getStudentsByMonth(5);
+        controller.printStudents(mayStudents);
     }
 }
